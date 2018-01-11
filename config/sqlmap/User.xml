@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace命名空间，作用是对sql进行分类化管理，理解sql隔离
+注意：使用mapper代理开发，namespace有特殊作用
+ -->
+<mapper namespace="test">
+<!-- 在映射文件中配置很多sql语句 -->
+	<!-- 通过id查询用户表的记录 -->
+	<!-- 通过select执行数据库查询 
+	id用来标识映射文件中的sql，成为statement的id
+	将sql语句封装到mappedStatement的id
+	#{}标识一个占位符
+	parameterType标识指定输入参数类型，这里指定int类型
+	#{id}:其中id标识输入的参数，参数的名字就是id，如果输入参数是简单类型，#{}中的参数名可以任意，可以是value或其他名称
+	resultType:指定sql输出结果的所映射的java对象类型，select指定resultType表示将单条记录映射成java对象
+	
+	-->
+	<select id="findUserById" parameterType="int" resultType="cn.itcast.mybatis.po.User">
+		SELECT * FROM user WHERE id=#{value}
+	</select>
+	<!-- 根据用户名称模糊查询用户信息,可能返回多条 
+	resultType:指定就是单条记录所映射的java对象类型-->
+	<!-- ${}:表示拼接sql串，将接收到的参数的内容不加任何修饰拼接在sql中 
+	使用${}拼接sql，引起sql注入
+	${value}:接受输入参数的内容，如果传入类型是简单类型，${}中只能使用value
+	-->
+	<select id="findUserByName" parameterType="java.lang.String" resultType="cn.itcast.mybatis.po.User">
+		SELECT * FROM user where username like %${value}%;
+	</select>
+</mapper>
