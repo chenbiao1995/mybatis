@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace命名空间，作用是对sql进行分类化管理，理解sql隔离
 注意：使用mapper代理开发，namespace有特殊作用
  -->
-<mapper namespace="test">
+<mapper namespace="cn.itcast.mybatis.mapper.UserMapper">
 <!-- 在映射文件中配置很多sql语句 -->
 	<!-- 通过id查询用户表的记录 -->
 	<!-- 通过select执行数据库查询 
