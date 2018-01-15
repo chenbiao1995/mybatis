@@ -47,7 +47,7 @@ public class UserMapperTest {
 	//创建UserMapper的对象，mybatis自动生成mapper的代理对象
 		UserMapper userMapper =sqlSession.getMapper(UserMapper.class);
 	//调用userMapper的方法
-		List<User> list = userMapper.findUserByName("小明");
+		List<User> list = userMapper.findUserByName("chenbiao");
 		System.out.println(list);
 		
 	}
@@ -63,7 +63,7 @@ public class UserMapperTest {
 		UserCustom userCustom =new UserCustom();
 		//由于这里设置动态sql，如果不设置某个值，条件不会拼接在sql中
 //		userCustom.setSex("1");
-		userCustom.setUsername("小明");
+		userCustom.setUsername("chenbiao");
 		//传入多个id
 		List<Integer> ids = new ArrayList<Integer>();
 		ids.add(1);
@@ -87,7 +87,7 @@ public class UserMapperTest {
 		UserQueryVo userQueryVo = new UserQueryVo();
 		UserCustom userCustom =new UserCustom();
 		userCustom.setSex("1");
-		userCustom.setUsername("陈小明");
+		userCustom.setUsername("chenbiao");
 		userQueryVo.setUserCustom(userCustom);
 	//调用userMapper的方法
 		int count = userMapper.findUserCount(userQueryVo);

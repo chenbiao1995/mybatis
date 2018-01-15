@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				user.sex = #{userCustom.sex}
 			</if>
 			<if test="userCustom.username!=null and userCustom.username!=''">
-				user.username like '%${userCustom.username}%'			
+				and user.username like '%${userCustom.username}%'			
 			</if>
 			<if test="ids!=null">
 			<!-- 使用foreach遍历传入ids 
@@ -115,7 +115,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	${value}:接受输入参数的内容，如果传入类型是简单类型，${}中只能使用value
 	-->
 	<select id="findUserByName" parameterType="java.lang.String" resultType="cn.itcast.mybatis.po.User">
-		SELECT * FROM user where username = '#{username}'
+		SELECT * FROM user where user.username = '#{username}'
 	</select>
 	
 	<!-- 添加用户
