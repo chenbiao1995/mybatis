@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import cn.itcast.mybatis.po.Orders;
 import cn.itcast.mybatis.po.OrdersCustom;
+import cn.itcast.mybatis.po.User;
 
 public class OrdersMapperCustomTest {
 	private SqlSessionFactory sqlSessionFactory;
@@ -46,7 +47,25 @@ public class OrdersMapperCustomTest {
 		List<Orders> list = ordersMapperCustom.findOrdersUserResultMap();
 		System.out.println(list);
 		sqlSession.close();
-		
 	}
-
+	
+	@Test
+	public void testFindOrdersAndOrderDetailUserResultMap() throws Exception {
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		OrdersMapperCustom ordersMapperCustom = sqlSession.getMapper(OrdersMapperCustom.class);
+		//调用mapper的方法
+		List<Orders> list = ordersMapperCustom.findOrdersAndOrderDetailUserResultMap();
+		System.out.println(list);
+		sqlSession.close();
+	}
+	@Test
+	public void testFindUserAndItemsUserResultMap() throws Exception {
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		OrdersMapperCustom ordersMapperCustom = sqlSession.getMapper(OrdersMapperCustom.class);
+		List<User> list = ordersMapperCustom.findUserAndItemsUserResultMap();
+		System.out.println(list);
+		sqlSession.close();
+	}
 }

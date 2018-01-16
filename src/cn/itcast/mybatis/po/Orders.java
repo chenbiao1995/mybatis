@@ -15,8 +15,18 @@ public class Orders {
     private String note;
     //用户信息
     private User user;
+    //订单明细
+    private List<Orderdetail> orderdetails;
     
-    public Integer getId() {
+    public List<Orderdetail> getOrderdetails() {
+		return orderdetails;
+	}
+
+	public void setOrderdetails(List<Orderdetail> orderdetails) {
+		this.orderdetails = orderdetails;
+	}
+
+	public Integer getId() {
         return id;
     }
 
