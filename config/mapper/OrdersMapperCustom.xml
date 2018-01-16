@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace命名空间，作用是对sql进行分类化管理，理解sql隔离 注意：使用mapper代理开发，namespace有特殊作用 -->
+<mapper namespace="cn.itcast.mybatis.mapper.OrdersMapperCustom">
+	<!-- 查询订单关联查询用户 -->
+	<select id="findOrdersUser" resultType="cn.itcast.mybatis.po.OrdersCustom">
+		SELECT
+		orders.*, USER .username,
+		USER .sex,
+		USER .address
+		FROM
+		orders,
+		USER
+		WHERE
+		orders.user_id = USER .id
+	</select>
+</mapper>

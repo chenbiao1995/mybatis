@@ -54,6 +54,6 @@ public class UserDaoImplTest {
 		UserDao userDao = new UserDaoImpl(sqlSessionFactory);
 		
 		//调用UserDao的方法
-		userDao.deleteUser(31);
+		userDao.deleteUser(33);
 	}
 }

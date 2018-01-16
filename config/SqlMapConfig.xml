@@ -41,6 +41,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="sqlmap/User.xml"/>
 		<!-- 通过resource方法一次加载一个文件 -->
 <!-- 		<mapper resource="mapper/UserMapper.xml"/> -->
+<!-- 		<mapper resource="mapper/OrdersMapperCustom.xml"/> -->
 		<!-- 通过mapper借口加载映射文件
 		遵循规范：需要将mapper借口类名和mapper.xml映射文件名称保持一致，且在一个目录中
 		上边规范的前提是，使用mapper代理的方法 -->

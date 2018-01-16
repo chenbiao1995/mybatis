@@ -51,6 +51,14 @@ public class UserMapperTest {
 		System.out.println(list);
 		
 	}
+	@Test
+	public void testDeleteUserById() throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+	//创建UserMapper的对象，mybatis自动生成mapper的代理对象
+		UserMapper userMapper =sqlSession.getMapper(UserMapper.class);
+	//调用userMapper的方法
+		userMapper.deleteUser(28);		
+	}
 	
 	//用户信息的综合查询
 	@Test
