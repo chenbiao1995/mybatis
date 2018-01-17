@@ -1,9 +1,10 @@
 package cn.itcast.mybatis.po;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
 	//属性名和表的字段一样
 	private int id;
 	private String username;// 用户姓名

@@ -6,7 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 注意：使用mapper代理开发，namespace有特殊作用
  -->
 <mapper namespace="cn.itcast.mybatis.mapper.UserMapper">
-
+	<!-- 开启本mapper的namespace下的二级缓存
+	type:指定cache借口的实现类的类型，mybatis默认使用PerpetualCache
+	要和ehcache整合，配置type为ehcache实现cache借口的类型
+	 -->
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
 	<!-- 定义sql片段 
 	id:sql片段的唯一标识
 	经验：是基于单表定义sql片段，这样话这个sql片段重用性高
@@ -96,7 +100,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	#{id}:其中id标识输入的参数，参数的名字就是id，如果输入参数是简单类型，#{}中的参数名可以任意，可以是value或其他名称
 	resultType:指定sql输出结果的所映射的java对象类型，select指定resultType表示将单条记录映射成java对象	
 	-->
-	<select id="findUserById" parameterType="int" resultType="user">
+	<select id="findUserById" parameterType="int" resultType="user" >
 			SELECT * FROM user WHERE id=#{value}
 	</select>
 	

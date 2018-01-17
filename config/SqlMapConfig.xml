@@ -8,9 +8,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- properties中还可以配置一些属性名和属性值 -->
 	</properties>
 	<!-- 全局配置参数，需要再设置 -->
-<!-- 	<setting> -->
-	
-<!-- 	</setting> -->
+	<settings>
+		<!-- 打开延迟加载的开关 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 将积极加载改为消极加载即按需要加载 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<!-- 开启二级缓存 -->
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
 	<!-- 别名定义 -->
 	<typeAliases>
 		<!-- 真对单个别名的定义
